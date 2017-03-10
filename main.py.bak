@@ -1,0 +1,78 @@
+"""
+00  S  Line Speed  N13:2
+01  S  Average Line Speed This Shift  N12:44
+02  L  Lineal Remaining  N13:25-26
+03  L  Lineal This Shift  N12:42
+04  S  Average Line Speed This Day  N12:48
+05  L  Wet End Lineal Remaining (calc.from sq.)
+06  S  Single Facer 1 Speed
+07  S  Total Downtime This Shift  N12:65
+"""
+
+import datetime
+import threading
+import time
+from kivy.app import App
+from kivy.properties import ObjectProperty, ListProperty
+from kivy.clock import Clock
+from base import Base
+
+
+class MainApp(App, Base):
+
+    root = ObjectProperty(None)
+
+    def build(self):
+        Base.__init__(self)
+
+        Clock.schedule_interval(self.display_datetime, 1)
+        threading.Thread(target=self.update_data).start()
+
+    def display_datetime(self, *args):
+        time_now = datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+        self.root.ids['lb_datetime'].text = time_now
+
+    def update_data(self, *args):
+        """
+        Update content periodically.
+        :param args:
+        :return:
+        """
+        line_num = 0
+        if self.debug:
+            f = open(self.cur_dir + 'sample.txt', 'r')
+            lines = f.readlines()
+
+        while True:
+            if self.debug:
+                if line_num == len(lines) - 1:
+                    line_num = 0
+                else:
+                    line_num += 1
+                data = lines[line_num][:-1]     # remove carriage return
+                print "Line number: ", line_num
+            else:
+                # TODO: Read data from serial line
+                data = '[02]01 124[03]'
+
+            print 'Received data: ', data
+
+            if not data.startswith('[02]') or not data.endswith('[03]'):
+                print 'Invalid type of data.'
+            else:
+                data_header = data[4:6]
+                # unit_list = ['m/min', 'm', 'm', 'm', 'm/min', 'm', 'm/min', 'mins']
+                data_list = ['00', '01', '02', '03', '04', '05', '06', '07']
+                if data_header in data_list:
+                    content = data[7:-4]
+                    # num = data_list.index(data_header)
+                    # tmp = '[color=FFEC1F]' + content + '[/color][size]' + unit_list[num] + '[/size]'
+                    tmp = '[color=FFEC1F]' + content + '[/color]'
+                    self.root.ids['lb_' + data_header].text = tmp
+
+            time.sleep(.2)
+
+
+if __name__ == '__main__':
+    app = MainApp()
+    app.run()

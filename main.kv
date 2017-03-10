@@ -1,0 +1,262 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 30
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: self.width, self.height
+            source: 'img/bg.jpg'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        Label:
+            id: lb_datetime
+			font_name: './fonts/HWYGEXPD.ttf'
+            text: ''
+            font_size: 30
+    GridLayout:
+        orientation: 'vertical'
+        cols: 2
+        spacing: 10
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Line Speed'
+                    font_size: 20
+                Label:
+                    text: ''
+                    font_size: 20
+                    size_hint_x: 1.7
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_00
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_x: 0.3
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m/min[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Average Line Speed This Shift'
+                    font_size: 20
+                Label:
+                    text: ''
+                    size_hint_x: 0.2
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_01
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    size_hint_x: 0.3
+                    orientation: 'vertical'
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Lineal Remaining'
+                    font_size: 20
+                Label:
+                    text: ''
+                    size_hint_x: 0.8
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_02
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_x: 0.3
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Lineal This Shift'
+                    font_size: 20
+                Label:
+                    text: ''
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_03
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    size_hint_x: 0.3
+                    orientation: 'vertical'
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Average Line Speed This Day'
+                    font_size: 20
+                Label:
+                    text: ''
+                    size_hint_x: 0.3
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_04
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_x: 0.3
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m/min[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Wet End Lineal Remaining'
+                    font_size: 20
+                Label:
+                    text: ''
+                    size_hint_x: 0.3
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_05
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    size_hint_x: 0.3
+                    orientation: 'vertical'
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Single Facer 1 Speed'
+                    font_size: 20
+                Label:
+                    size_hint_x: 0.8
+                    text: ''
+                    font_size: 20
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_06
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    size_hint_x: 0.3
+                    orientation: 'vertical'
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]m/min[/color]'
+                        font_size: 30
+                        markup: True
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: 'Total Downtime This Shift'
+                    font_size: 20
+                Label:
+                    text: ''
+                    font_size: 20
+                    size_hint_x: 0.3
+            GridLayout:
+                orientation: 'vertical'
+                cols: 2
+                Label:
+                    text: ''
+                    id: lb_07
+                    font_size: 100
+                    markup: True
+                BoxLayout:
+                    size_hint_x: 0.3
+                    orientation: 'vertical'
+                    Label:
+                        text: ''
+                    Label:
+                        valign: 'bottom'
+                        text: '[color=88EC1F]mins[/color]'
+                        font_size: 30
+                        markup: True
+
